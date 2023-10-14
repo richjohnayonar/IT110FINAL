@@ -11,8 +11,8 @@ body {
   height: 100%;
   width: 100%;
   place-items: center;
-  background: #f2f2f2;
-  /* background: linear-gradient(-135deg, #c850c0, #4158d0); */
+  /* background: #f2f2f2; */
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
 }
 ::selection {
   background: #4158d0;
@@ -40,7 +40,7 @@ body {
 .wrapper form .field {
   height: 50px;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 50px;
   position: relative;
 }
 .wrapper form .field input {
@@ -83,6 +83,8 @@ form .content {
   font-size: 16px;
   align-items: center;
   justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
 form .content .checkbox {
   display: flex;
@@ -129,4 +131,48 @@ form .signup-link a {
 form .pass-link a:hover,
 form .signup-link a:hover {
   text-decoration: underline;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 10px;
+  padding: 10px;
+}
+
+@media screen and (max-width: 920px) {
+  .wrapper {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .wrapper {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .wrapper {
+    width: 90%;
+  }
+
+  .wrapper form .field {
+    margin-top: 30px;
+  }
+
+  .wrapper form .field input {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .wrapper form .field label {
+    font-size: 14px;
+  }
+
+  form .content {
+    height: auto;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    flex-direction: column;
+  }
 }

@@ -3,6 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Form Design | CodeLab</title>
     <link rel="stylesheet" href="/style.css" />
   </head>
@@ -17,6 +18,7 @@
         <div class="field">
           <input type="password" required name="password" />
           <label>Password</label>
+          <p class="errorMessage"><%= errorMessage %></p>
         </div>
         <div class="content">
           <div class="checkbox">
