@@ -18,7 +18,7 @@ const signup = async (req, res) => {
       errors[err.context.key] = err.message;
     });
 
-    res.render("signup.ejs", { errors });
+    res.render("signup.ejs", { errors, errorMessage: null });
   } else {
     try {
       const emailExist = await userModel.exists({ email: userInput.email });
@@ -62,7 +62,7 @@ const login = async (req, res) => {
 };
 
 const loginPage = (req, res) => {
-  res.render("login.ejs", { errorMessage: null });
+  res.render("login.ejs", { errorMessage: null, errors: null });
 };
 
 const signupPage = (req, res) => {
