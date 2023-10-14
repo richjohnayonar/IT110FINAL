@@ -14,7 +14,9 @@
         <div class="field">
           <input type="email" required name="email" />
           <label>Email Address</label>
-          <% if (errors && errors.email) { %>
+          <% if (errorMessage) { %>
+          <p class="errorMessage"><%= errorMessage %></p>
+          <% } %> <% if (errors && errors.email) { %>
           <p class="errorMessage"><%= errors.email %></p>
           <% } %>
         </div>

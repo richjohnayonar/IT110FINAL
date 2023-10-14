@@ -21,9 +21,17 @@ const signup = async (req, res) => {
     res.render("signup.ejs", { errors });
   } else {
     try {
-      const hash = await bcrypt.hash(req.body.password, saltRounds);
-      await userModel.create({ email: req.body.email, password: hash });
-      res.render("login.ejs");
+      const emailExist = await userModel.exists({ email: userInput.email });
+      if (emailExist) {
+        res.render("signup.ejs", {
+          errors: null,
+          errorMessage: "Email Already Exist",
+        });
+      } else {
+        const hash = await bcrypt.hash(req.body.password, saltRounds);
+        await userModel.create({ email: req.body.email, password: hash });
+        res.render("login.ejs", { errorMessage: null });
+      }
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
@@ -58,7 +66,7 @@ const loginPage = (req, res) => {
 };
 
 const signupPage = (req, res) => {
-  res.render("signup.ejs", { errors: null });
+  res.render("signup.ejs", { errors: null, errorMessage: null });
 };
 module.exports = {
   signup,
